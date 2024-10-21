@@ -66,3 +66,5 @@ You can customize the HTML web interface to fit your design preferences. Here ar
 ![Screenshot 2024-10-22 001227](https://github.com/user-attachments/assets/c5e4f08d-9e66-4673-a4d7-bc2682f873b4)
 
 Feel free to adjust the styles to fit your project’s theme!
+and refer for color palette (https://colorhunt.co/)
+the code is open source so feel free to modify! ✌️
