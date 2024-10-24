@@ -1,70 +1,159 @@
-# ESP32-CAM-PAN-TILT-WIFI-CAM
-![Project Image](https://github.com/user-attachments/assets/bea6ddab-9588-421c-a9cf-d1fd22205bcf)
+# 🎥 ESP32-CAM Pan-Tilt System
 
-ESP32-CAM module and servos to provide a pan-and-tilt control system via a web interface. The project combines camera streaming, Wi-Fi access point creation, and servo motor control, with functionality to store and recall servo positions using non-volatile memory.
+<div align="center">
 
-## About
+![Project Banner](https://github.com/user-attachments/assets/bea6ddab-9588-421c-a9cf-d1fd22205bcf)
 
-This project enables remote control of a pan-and-tilt camera system using an ESP32-CAM module. It allows users to control the camera's position and view the live video feed through a web interface. With this setup, you can monitor areas remotely and control the viewing angle of your camera easily.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![ESP32](https://img.shields.io/badge/ESP32-CAM-red.svg)](https://www.espressif.com/)
+[![Servo](https://img.shields.io/badge/Servo-SG90-orange.svg)](https://components101.com/motors/servo-motor-basics-pinout-datasheet)
+[![Thingiverse](https://img.shields.io/badge/Thingiverse-Download_STL-brightgreen.svg)](https://www.thingiverse.com/thing:6805012)
 
-## Items Used
+*A WiFi-controlled pan-tilt camera system powered by ESP32-CAM with position memory*
 
-- **ESP32-CAM**: The core component for camera functionality and Wi-Fi communication.
-- **3D-Printed Chassis**: A custom-designed chassis to house the ESP32-CAM and servos, ensuring stability and proper alignment.
-- **SG90 Servo Motors**: Two servo motors (SG90) for pan-and-tilt movements, providing precise control of the camera's orientation.
-- **Jumper Wires**: Essential for connecting components and ensuring a clean setup.
-- **FTDI Adapter**: Used for programming the ESP32-CAM module, facilitating easy uploading of code.
-- **Pan-and-Tilt Frame**: A robust frame to mount the camera and servos, allowing for controlled movement and positioning.
+[Features](#✨-features) • [Hardware Required](#🛠️-hardware-required) • [Installation](#📥-installation) • [Usage](#💻-usage) • [Customization](#🎨-customization) • [Contributing](#👥-contributing)
+
+</div>
+
+## ✨ Features
+
+- 📡 Built-in WiFi Access Point
+- 🎥 Real-time video streaming
+- 🎮 Intuitive web interface control
+- 💾 Position memory with non-volatile storage
+- 🔄 Smooth pan and tilt movements
+- 📱 Mobile-responsive design
+- 🛠️ Easy to build and customize
+
+## 🛠️ Hardware Required
+
+Component | Quantity | Notes
+----------|----------|-------
+ESP32-CAM Module | 1 | Main controller + camera
+SG90 Servo Motors | 2 | For pan and tilt movements
+3D-Printed Chassis | 1 | [Download STL files](https://www.thingiverse.com/thing:6805012)
+FTDI Adapter | 1 | For programming
+Pan-Tilt Frame | 1 | Mounting hardware
+Jumper Wires | As needed | For connections
+5V Power Supply | 1 | 2A recommended
+
+### 🖨️ 3D Printing Instructions
+
+1. Download the STL files from [Thingiverse](https://www.thingiverse.com/thing:6805012)
+2. Recommended print settings:
+   - Layer Height: 0.2mm
+   - Infill: 20%
+   - Supports: Yes
+   - Material: PLA/PETG
+3. Parts to print:
+   - Base mount
+   - Camera holder
+   - Servo brackets
+   - Pan-tilt mechanism
+
+### 📋 Circuit Diagram
+
+![Circuit Diagram](https://github.com/user-attachments/assets/5362c858-9ea5-4f86-ad9e-bd8231a87b27)
+
+## 📥 Installation
+
+### Step-by-Step Guide
+
+1. **Hardware Assembly**
+   ```bash
+   # Follow these connections:
+   - ESP32-CAM GPIO 2 -> Pan Servo
+   - ESP32-CAM GPIO 13 -> Tilt Servo
+   - 5V and GND to both servos
+   ```
+
+2. **Software Setup**
+   ```bash
+   # Clone this repository
+   git clone https://github.com/yourusername/ESP32-CAM-PAN-TILT-WIFI-CAM.git
+   
+   # Open Arduino IDE
+   # Install required libraries:
+   - ESP32 Board Support
+   - ESP32 Camera Driver
+   - ESP Preferences
+   ```
+
+3. **Upload Process**
+   - Upload files in sequence:
+     1. `Step1-Check-Servos.ino`
+     2. `Step2-Testing-Local-Wifi-Connection.ino`
+     3. `Step4-Clear-OLDMemoryDATA.ino`
+     4. `Step5-Lock-Servo-Position.ino`
+     5. `Step6-Create-Wifi-IP-ForCamera-Final.ino`
+
+## 💻 Usage
+
+1. Power up the system
+2. Connect to the ESP32 WiFi AP
+   - SSID: `ESP32-CAM-CONTROL`
+   - Password: `12345678`
+3. Navigate to `http://192.168.4.1`
+4. Use the web interface to control camera movement
+
+### 🕹️ Web Interface
+
+![Web Interface](https://github.com/user-attachments/assets/c5e4f08d-9e66-4673-a4d7-bc2682f873b4)
+
+## 🎨 Customization
+
+### Color Scheme
+
+```css
+:root {
+  --background: #001F3F;    /* Dark Blue */
+  --text: #EAD8B1;         /* Light Beige */
+  --primary: #6A9AB0;      /* Light Blue */
+  --secondary: #3A6D8C;    /* Medium Blue */
+}
+```
+
+Want to change the look? Visit [ColorHunt](https://colorhunt.co/) for inspiration!
+
+### Interface Modifications
+
+Edit `Step3-Design-Your-Webpage.html` to customize:
+- Layout and styling
+- Control button placement
+- Slider behavior
+- Video feed size
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Thanks to all contributors who helped shape this project
+- Inspired by various ESP32-CAM projects in the community
+- 3D printing community for chassis design inputs
+
+## 📸 Gallery
+
+<div align="center">
 
 ![Pan-and-Tilt Frame](https://github.com/user-attachments/assets/8a52a6bc-8206-45c3-af31-00d7fe6aa050)
 
-## Project Structure
+*Pan-Tilt mechanism in action*
 
-The project consists of several steps, each represented by its own file:
+</div>
 
-1. **Step1-Check-Servos.ino**  
-   This file initializes the servo motors and checks their basic functionality. It ensures that the servos respond correctly to input commands and are capable of moving to their designated positions.
-
-2. **Step2-Testing-Local-Wifi-Connection.ino**  
-   This file sets up and tests the local Wi-Fi connection to ensure the ESP32 can communicate with connected devices. It verifies the network connection and prepares the ESP32 for streaming and remote control.
-
-3. **Step3-Design-Your-Webpage.html**  
-   This HTML file contains the web interface for controlling the pan-and-tilt functionality of the camera. Customize the design as needed.  
-   **Color Palette Used:**  
-   - Background: `#001F3F` (Dark Blue)
-   - Text Color: `#EAD8B1` (Light Beige)
-   - Slider Background: `#6A9AB0` (Light Blue)
-   - Slider Thumb: `#3A6D8C` (Medium Blue)
-   - Button Background: `#6A9AB0` (Light Blue)
-   - Button Hover: `#3A6D8C` (Medium Blue)
-
-4. **Step4-Clear-OLDMemoryDATA.ino**  
-   This file clears any old data stored in the Preferences library to ensure fresh data storage. It helps maintain the integrity of the data being used for servo positions.
-
-5. **Step5-Lock-Servo-Position.ino**  
-   This file allows users to lock the servo positions in place, preventing unwanted movements during operation. It provides stability during use, particularly when the camera needs to remain focused on a specific area.
-
-6. **Step6-Create-Wifi-IP-ForCamera-Final.ino**  
-   This final step sets up the complete system, establishing the camera's IP address and streaming the video feed to the web interface. It consolidates all previous setups into a functioning pan-and-tilt camera system.
-
-## Getting Started
-
-1. Assemble the hardware components according to the wiring diagram.
-2. Upload the respective `.ino` files to the ESP32-CAM using the FTDI adapter.
-3. Access the web interface using the IP address provided in the serial monitor after running the final step.
-
-### Circuit Diagram
-![Circuit Diagram](https://github.com/user-attachments/assets/5362c858-9ea5-4f86-ad9e-bd8231a87b27)
-
-## Customization
-
-You can customize the HTML web interface to fit your design preferences. Here are some suggestions for color adjustments to match your desired aesthetic:
-
-- **Background Color**: Change to a different dark shade for a more dramatic look.
-- **Text Color**: Use a brighter color for enhanced visibility against the background.
-- **Button Colors**: Experiment with different hues to make the buttons stand out more.
-![Screenshot 2024-10-22 001227](https://github.com/user-attachments/assets/c5e4f08d-9e66-4673-a4d7-bc2682f873b4)
-
-Feel free to adjust the styles to fit your project’s theme!
-and refer for color palette (https://colorhunt.co/)
-the code is open source so feel free to modify! ✌️
+---
+<div align="center">
+Made with ❤️ by the ESP32-CAM community
+</div>
