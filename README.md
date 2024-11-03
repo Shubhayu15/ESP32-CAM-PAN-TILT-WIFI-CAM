@@ -152,8 +152,3 @@ This project is open source and available under the [MIT License](LICENSE).
 *Pan-Tilt mechanism in action*
 
 </div>
-
----
-<div align="center">
-Made with ❤️ by the ESP32-CAM community
-</div>
